@@ -1,26 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Page1 from "./pages/page1";
+import Page2 from "./pages/page2";
+import { Page, usePageDataContext } from "./providers/pageProvider";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const { pageData, setPageData } = usePageDataContext();
+  function pageSwitch() {
+    switch (pageData.page) {
+      case Page.page1:
+        return <Page1 />;
+      case Page.page2:
+        return <Page2 />;
+    }
+  }
+  return <div className="App">{pageSwitch()}</div>;
 }
 
 export default App;
