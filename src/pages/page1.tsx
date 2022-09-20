@@ -1,11 +1,12 @@
+import React from "react";
+import { NewComp } from "../components/newComp";
 import { Page, usePageDataContext } from "../providers/pageProvider";
 
 export default function Page1() {
   const { pageData, setPageData, getNum } = usePageDataContext();
   return (
     <>
-      page 1 asada
-      {getNum()}
+      page 1{getNum()}
       <div
         onClick={() => {
           setPageData({
@@ -17,6 +18,7 @@ export default function Page1() {
       >
         click
       </div>
+      <NewComp productId="PS10WF"></NewComp>
     </>
   );
 }
